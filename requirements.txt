@@ -1,0 +1,3 @@
+transpose-data
+jupyter
+python-dotenv
