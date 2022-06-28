@@ -1,3 +1,3 @@
-transpose-data
+transpose-data==1.2.0
 jupyter
 python-dotenv
