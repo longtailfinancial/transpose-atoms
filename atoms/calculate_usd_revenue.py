@@ -1,14 +1,19 @@
-import os
 from transpose import Transpose
 from datetime import datetime
-
-
 
 
 def calculate_usd_revenue(api: Transpose, contract_address: str, from_date: str, to_date: str, fee_rate: float=1.0) -> float:
     """
     Calculate the USD revenue for a contract between two dates.
+
+    :param api: Transpose API object
+    :param contract_address: Contract address to get revenue for
+    :param from_date: Start date for revenue calculation
+    :param to_date: End date for revenue calculation
+    :param fee_rate: Fee rate to use for revenue calculation
+    :return: USD revenue
     """
+
     from_date = datetime.strptime(from_date, "%Y-%m-%d")
     to_date = datetime.strptime(to_date, "%Y-%m-%d")
 
@@ -24,6 +29,8 @@ def calculate_usd_revenue(api: Transpose, contract_address: str, from_date: str,
 
 
 if __name__ == "__main__":
+    import os
     key = os.environ["TRANSPOSE_KEY"]
     api = Transpose(key)
-    print(calculate_usd_revenue(api, "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D", "2022-02-01", "2022-06-01"))
+    BAYC_CONTRACT_ADDRESS = "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"
+    print(calculate_usd_revenue(api, BAYC_CONTRACT_ADDRESS, "2022-02-01", "2022-06-01"))
