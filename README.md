@@ -52,13 +52,14 @@ if __name__ == "__main__":
 
 ## Setup
 1. Sign up for a free key at https://transpose.io 
-2. `python3 -m venv env`
-3. `source env/bin/activate`
-4. `python -m pip --upgrade pip`
-5. `python -m pip install -r requirements.txt`
-6. `python atoms/top_holders.py` 
+2. `export TRANSPOSE_KEY='YOUR_KEY_HERE'`
+3. `python3 -m venv env`
+4. `source env/bin/activate`
+5. `python -m pip --upgrade pip`
+6. `python -m pip install -r requirements.txt`
+7. `python atoms/top_holders.py` 
 
-These commands get your environment set up and run the top_holders Atom. You can set up your key as an environment variable or add it **as a string** into the Transpose object initialization.
+These commands get your environment set up and run the top_holders Atom. Item 2 adds your key as an env var. You can also add it **as a string** into the Transpose object initialization when initializing the API object.
 
 ex:
 

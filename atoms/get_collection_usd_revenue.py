@@ -1,10 +1,15 @@
 from transpose import Transpose
 from datetime import datetime
+from pprint import pprint
+import os
 
 
-def calculate_usd_revenue(api: Transpose, contract_address: str, from_date: str, to_date: str, fee_rate: float=1.0) -> float:
+def get_collection_usd_revenue(api: Transpose, contract_address: str, from_date: str, to_date: str, 
+                               fee_rate: float=1.0) -> float:
+
     """
-    Calculate the USD revenue for a contract between two dates.
+    Calculate the USD revenue for a contract between two dates given a fee rate on
+    all collection NFT sales.
 
     :param api: Transpose API object
     :param contract_address: Contract address to get revenue for
@@ -29,8 +34,8 @@ def calculate_usd_revenue(api: Transpose, contract_address: str, from_date: str,
 
 
 if __name__ == "__main__":
-    import os
     key = os.environ["TRANSPOSE_KEY"]
     api = Transpose(key)
+    
     BAYC_CONTRACT_ADDRESS = "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"
-    print(calculate_usd_revenue(api, BAYC_CONTRACT_ADDRESS, "2022-06-01", "2022-07-01"))
+    pprint(get_collection_usd_revenue(api, BAYC_CONTRACT_ADDRESS, "2022-06-01", "2022-07-01"))

@@ -1,14 +1,19 @@
 from transpose import Transpose
+from pprint import pprint
+import os
 
 
-def calculate_top_holders(api: Transpose, contract_address: str, num_holders: int = 10):
+def get_top_collection_holders(api: Transpose, contract_address: str,
+                               num_holders: int=10) -> list:
+
     """
-    Get the top holders of a contract.
+    Get the top holders of a NFT collection by number of NFTs owned, including
+    quantity in the case of ERC-1155 NFTs.
 
     :param api: Transpose API object
     :param contract_address: Contract address to get top holders for
     :param num_holders: Number of top holders to return
-    :return: List of top holders=
+    :return: List of top holders
     """
 
     # Get all contract holders
@@ -23,17 +28,14 @@ def calculate_top_holders(api: Transpose, contract_address: str, num_holders: in
 
     # Sort holders
     holders = sorted(holders.items(), key=lambda x: x[1], reverse=True)
-    print("Found {} holders".format(len(holders)))
 
     # Return top holders
     return holders[:num_holders]
 
 
-if __name__ == "__main__":
-    import os
-    from pprint import pprint
-    
+if __name__ == "__main__":    
     key = os.environ["TRANSPOSE_KEY"]
     api = Transpose(key)
+
     bayc_contract_address = "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"
-    pprint(calculate_top_holders(api, bayc_contract_address))
+    pprint(get_top_collection_holders(api, bayc_contract_address))
