@@ -1,10 +1,10 @@
 from transpose import Transpose
 
 # Transpose Atom Dependencies
-from atoms.top_holders import top_holders
+from atoms.calculate_top_holders import calculate_top_holders
 
 
-def return_similar_collections(api: Transpose, contract_address: str, num_to_return: int = 5):
+def get_similar_collections(api: Transpose, contract_address: str, num_to_return: int = 5):
     """
     Returns a list of similar collections for a given contract address.
 
@@ -19,7 +19,7 @@ def return_similar_collections(api: Transpose, contract_address: str, num_to_ret
     """
     
     # Get top holders for contract
-    top_holders_for_contract = top_holders(api, contract_address, 5)
+    top_holders_for_contract = calculate_top_holders(api, contract_address, 5)
     print("Found {} top holders".format(len(top_holders_for_contract)))
 
     # Retrieve all NFTs owned by each top holder
@@ -53,4 +53,4 @@ if __name__ == "__main__":
     key = os.environ["TRANSPOSE_KEY"]
     api = Transpose(key)
     BAYC_CONTRACT_ADDRESS = "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"
-    print(json.dumps(return_similar_collections(api, BAYC_CONTRACT_ADDRESS), indent=4))
+    print(json.dumps(get_similar_collections(api, BAYC_CONTRACT_ADDRESS), indent=4))

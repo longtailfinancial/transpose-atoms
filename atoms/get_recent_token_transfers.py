@@ -3,7 +3,7 @@ from transpose import Transpose
 from pprint import pprint
 
 
-def recent_token_transfers(api: Transpose, contract_address, limit=10):
+def get_recent_token_transfers(api: Transpose, contract_address, limit=10):
     """
     Returns a list of recent token transfers for a given contract address.
 
@@ -30,5 +30,5 @@ if __name__ == "__main__":
     key = os.environ["TRANSPOSE_KEY"]
     api = Transpose(key)
     WETH_CONTRACT_ADDRESS = '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2'
-    pprint(recent_token_transfers(api, WETH_CONTRACT_ADDRESS, 10))
+    pprint(get_recent_token_transfers(api, WETH_CONTRACT_ADDRESS, 10))
     

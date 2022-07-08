@@ -1,7 +1,7 @@
 from transpose import Transpose
 
 
-def top_holders(api: Transpose, contract_address: str, num_holders: int = 10):
+def calculate_top_holders(api: Transpose, contract_address: str, num_holders: int = 10):
     """
     Get the top holders of a contract.
 
@@ -36,4 +36,4 @@ if __name__ == "__main__":
     key = os.environ["TRANSPOSE_KEY"]
     api = Transpose(key)
     bayc_contract_address = "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"
-    pprint(top_holders(api, bayc_contract_address))
+    pprint(calculate_top_holders(api, bayc_contract_address))
