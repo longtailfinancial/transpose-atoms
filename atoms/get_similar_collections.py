@@ -26,7 +26,7 @@ def get_similar_collections(api: Transpose, contract_address: str, num_to_return
     top_owned_collections = {}
     for top_holder in top_holders_for_contract:
         print("Getting NFTs owned by {}".format(top_holder[0]))
-        owned_nfts = api.bulk_request(api.nft.nfts_by_owner(top_holder[0], limit=500))
+        owned_nfts = api.bulk_request(api.nft.nfts_by_owner(top_holder[0], limit=500), 15)
     
         # get the contract address for each NFT and save the number of NFTs owned by each holder
         for nft in owned_nfts:

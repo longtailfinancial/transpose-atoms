@@ -12,7 +12,7 @@ def calculate_top_holders(api: Transpose, contract_address: str, num_holders: in
     """
 
     # Get all contract holders
-    all_holders = api.bulk_request(api.nft.owners_by_contract_address(contract_address, limit=500), 20, 500)
+    all_holders = api.bulk_request(api.nft.owners_by_contract_address(contract_address, limit=500), 15)
 
     # Aggregate holders
     holders = {}

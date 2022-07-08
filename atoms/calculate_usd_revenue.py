@@ -18,7 +18,7 @@ def calculate_usd_revenue(api: Transpose, contract_address: str, from_date: str,
     to_date = datetime.strptime(to_date, "%Y-%m-%d")
 
     # Get all sales for contract between from_date and to_date
-    sales = api.bulk_request(api.nft.sales_by_contract_address(contract_address, from_date, to_date, limit=500), 20, 1000)
+    sales = api.bulk_request(api.nft.sales_by_contract_address(contract_address, from_date, to_date, limit=500), 15)
 
     # Calculate USD revenue
     usd_revenue = 0
