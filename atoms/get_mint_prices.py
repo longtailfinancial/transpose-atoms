@@ -21,7 +21,7 @@ def get_collection_mint_prices(api: Transpose, contract_address: str,
     :param api: Transpose API object
     :param contract_address: Contract address to get collection mint prices for
     :param limit: Number of mints to return
-    :return: List of top holders
+    :return: List of enriched mint dicts following above structure. 
     """
 
     # Get all mints

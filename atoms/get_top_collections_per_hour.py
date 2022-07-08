@@ -1,30 +1,27 @@
-import os
-from multiprocessing.dummy import Pool
-from dateutil import parser
-from datetime import timedelta
+from datetime import datetime, timedelta
 from pprint import pprint
+import os
 
 from transpose import Transpose
 
 
-def calculate_top_collections_per_hour(
-    api: Transpose, 
-    time: str, 
-    num_collections: int = 10):
+def get_top_collections_per_hour(api: Transpose, start_date: datetime,
+                                 num_collections: int=10):
+
     """
-    Get the top num_collections collections by sale volume for a given hour
+    Get the top NFT collections by USD sale volume for an hour starting
+    at a given date.
 
     :param api: Transpose API object
     :param time: Time to get top collections for '2022-04-03 12:00:00'
     :param num_collections: Number of collections to return
-    :return: List of top collections
+    :return: List of top collections with USD volume.
     """ 
 
     # Setup dates
-    start_date = parser.parse(time)
     end_date = start_date + timedelta(hours=1)
 
-    # conver dates to str
+    # Convert dates to string
     start_date = start_date.strftime("%Y-%m-%d %H:%M:%S")
     end_date = end_date.strftime("%Y-%m-%d %H:%M:%S")
 
@@ -43,7 +40,6 @@ def calculate_top_collections_per_hour(
 
     # Sort collections by volume
     usd_volume_by_collection = sorted(usd_volume_by_collection.items(), key=lambda x: x[1], reverse=True)
-    print("Found {} collections".format(len(usd_volume_by_collection)))
 
     # Return top collections
     return usd_volume_by_collection[:num_collections]
@@ -52,4 +48,5 @@ def calculate_top_collections_per_hour(
 if __name__ == "__main__":
     key = os.environ["TRANSPOSE_KEY"]
     api = Transpose(key)
-    pprint(calculate_top_collections_per_hour(api, "2022-04-03 12:00:00"))
+
+    pprint(get_top_collections_per_hour(api, datetime(2022, 4, 3, 12, 0, 0)))
