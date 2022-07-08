@@ -33,4 +33,4 @@ if __name__ == "__main__":
     key = os.environ["TRANSPOSE_KEY"]
     api = Transpose(key)
     BAYC_CONTRACT_ADDRESS = "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"
-    print(calculate_usd_revenue(api, BAYC_CONTRACT_ADDRESS, "2022-02-01", "2022-06-01"))
+    print(calculate_usd_revenue(api, BAYC_CONTRACT_ADDRESS, "2022-06-01", "2022-07-01"))
