@@ -21,6 +21,7 @@ The Transpose team will create the first few Atoms and will gradually add to the
 - get_recent_token_transfers(api, contract_address, limit): returns [limit] recent transfers for an NFT collection
 - calculate_top_holders(api, contract_address, num_holders): returns [num_holders] top holders of an NFT collection
 - get_similar_collections(api, contract_address, num_to_return): returns [num_to_return] contracts with most overlapping ownership with contract_address
+- get_num_holders_for_collection(api, contract_address): returns [num_holders] for the provided contract address
 
 ## Atom Format
 All Atom files should be formatted the same way for easy usage and composability
