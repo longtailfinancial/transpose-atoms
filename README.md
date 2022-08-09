@@ -2,6 +2,13 @@
 
 Transpose Atoms are atomic, modular chunks of code that build on the core Transpose API Suite to do cool things even faster. The project's goal is to encourage community contribution and grow a repository of use-case centric snippets of code that augment the power of our core suite. Atoms can also be composed to implement very powerful analysis as simply as possible.
 
+
+### Getting Started
+
+This repo also contains simple canonical data retrieval examples in a jupyter notebook. This notebook is a helpful way to get a more complete introduction to the capabilities of the Transpose suite. The demo document can be found in the `demos/` folder.
+
+To get started, follow the setup instructions below but instead of step 7 run: `jupyter notebook` while in the parent directory. Select the Demo file and run the cells to get up to speed on how to use Transpose.
+
 ### Why Atoms?
 
 The Transpose API Suite exposes the entirety of data on Ethereum. In it's raw format, this data is already quite powerful. A little bit of mixing and post-processing unlocks incredible use cases like fine-grained wallet analysis, sales data aggregation and NFT holder similarity analysis. Atoms expose this powerful functionality in a single line of code.
